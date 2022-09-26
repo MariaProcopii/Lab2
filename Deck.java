@@ -1,5 +1,4 @@
 import java.util.*;
-import java.util.Random;
 
 public class Deck {
     ArrayList<Card> deckWith = new ArrayList<>();
@@ -25,6 +24,6 @@ public class Deck {
         Deck deck = new Deck();
         deck.cardValue();
         deck.addCards();
-        System.out.println(deck.deckWith.size());
+        System.out.println(deck.deckWith);
    }
 }

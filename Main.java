@@ -1,24 +1,20 @@
-import java.util.ArrayList;
-import java.util.Random;
 public class Main {
-
-    public static ArrayList<Table> table = new ArrayList<>();
-    static ArrayList<Player> haveTable = new ArrayList<>();
-    static ArrayList<Player> haveNoTable = new ArrayList<>();
-
     public static void main(String[] args){
-        Random random = new Random();
-        int nrOfPlayers = random.nextInt(10) + 1;
-//        int nrOfPlayers = 8;
-        Admin admin = new Admin(nrOfPlayers);
-        admin.provideTable(haveTable, haveNoTable, table);
-        System.out.println(table.get(0).number);
-
-
-
-
-
-
+        Player player = new Player("Hi", 8);
+        Meal meal = new Meal();
+        Menu menu = new Menu();
+        Cook cook = new Cook();
+        Table table = new Table(1, player);
+        Waiter waiter = new Waiter();
+        Cleaner cleaner = new Cleaner();
+        Barman barman = new Barman();
+        Deck deck = new Deck();
+        waiter.takeOrder(menu, meal, player);
+        cook.cooking(meal, waiter, player, table);  //table is dirty
+        cleaner.CleanTable(table);
+        barman.playGame(player, deck);
+        waiter.bringBill(menu, player);
+        System.out.println(player.satisfied);
 
     }
 }

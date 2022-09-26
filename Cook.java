@@ -1,4 +1,5 @@
 public class Cook {
+
     public void qualityCheck(Waiter waiter, Player player) {
         if (waiter.qualityIndex == 1) {
             player.satisfied--;
@@ -11,6 +12,7 @@ public class Cook {
             System.out.println("Player " + player.index + " was so happy because the waiter worked very fast :) ");
         }
     }
+
     public void cooking(Meal meal, Waiter waiter, Player player, Table table){
         qualityCheck(waiter, player);
         player.food = meal.food;

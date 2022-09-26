@@ -13,6 +13,7 @@ public class Meal {
         supply = menu.suppliesList[rand2];
         System.out.println("Player " + player.index + " wants to order " + food + " with " + supply);
     }
+
     void stopListCheck(Player player, Menu menu){
         menu.stopList();
         if(food.equals(menu.foodFromSL)){
@@ -31,18 +32,5 @@ public class Meal {
             System.out.println("Meal, wanted by Player " + player.index + " was not in Stop-list");
         }
     }
-
-//    public static void main(String[] args){
-//        Player player = new Player("Hi", 8);
-//        Meal meal = new Meal();
-//        Menu menu = new Menu();
-//        menu.stopList();
-//        meal.pickFood(menu);
-//
-//        meal.stopListCheck(player, menu);
-//        System.out.print(meal.food+"\n");
-//        System.out.print(meal.supply);
-//        System.out.print(player.satisfied);
-//    }
 }
 

@@ -31,13 +31,6 @@ public class Menu {
         supplyFromSL = suppliesList[rand2];
         System.out.println("Today customers can't order " + foodFromSL + " or " + supplyFromSL);
     }
-
-
-//    public static void main(String[] args){
-//        Menu menu = new Menu();
-//        menu.createSuppMenu();
-//        System.out.println(suppliesWithPrice);
-//    }
 }
 
 

@@ -1,14 +1,12 @@
 import java.util.Random;
 
 public class Barman {
-    int count = 3;
     int rand1;
     int rand2;
     Card card1;
     Card card2;
+
     void playGame(Player player, Deck deck){
-        while (count == 3){
-            count--;
             Random random = new Random();
             deck.addCards();
             this.rand1 = random.nextInt(deck.deckWith.size());
@@ -31,7 +29,6 @@ public class Barman {
                 player.pay(50);
                 player.satisfied -= 10;
             }
-        }
 
     }
 }
