@@ -20,6 +20,9 @@ public class Player {
     public int moneyAmount(){
         return money;
     }
+    public void setMoney(int money){
+        this.money += money;
+    }
     public void pay(int bill){
         this.money -= bill;
     }

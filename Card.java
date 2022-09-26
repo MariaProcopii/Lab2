@@ -8,10 +8,11 @@ public class Card {
     public Card(String suit, String rank){
         this.suit = suit;
         this.rank = rank;
-        this.value = findValue();
     }
-    public int findValue(){
-        return deck.cardWithValue.get(rank);
+    public void findValue(){
+        deck.cardValue();
+        this.value  = deck.cardWithValue.get(rank);
     }
 
 }
+
