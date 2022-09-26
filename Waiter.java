@@ -1,5 +1,4 @@
 import java.util.Random;
-
 public class Waiter {
     int bill;
     int qualityIndex; // 1 = bad, 2 = good, 3 = nice;
@@ -8,17 +7,16 @@ public class Waiter {
         this.qualityIndex = random.nextInt(3) + 1;
     }
     public void takeOrder(Menu menu, Meal meal, Player player){
-        meal.pickFood(menu);
+        meal.pickFood(player, menu);
         meal.stopListCheck(player, menu);
-        player.food = meal.food;                 //after cooking
-        player.supply = meal.supply;
-        player.meal = player.food + " with " + player.supply;
-        System.out.println("Player " + player.index + " chose " + player.meal);
+        System.out.println("Player " + player.index + " ordered " + meal.food + " with " + meal.supply);
+//        player.food = meal.food;                 //after cooking
+//        player.supply = meal.supply;
+//        player.meal = player.food + " with " + player.supply;
+//        System.out.println("Player " + player.index + " chose " + player.meal);
     }
-    public void bringOrder(){
 
-    }
-    public void bringBill(Menu menu, Player player){
+    public void bringBill(Menu menu, Player player){   //after cook here we can call cook
         menu.createFoodMenu();
         menu.createSuppMenu();
         int bill1 = menu.foodWithPrice.get(player.food);
@@ -33,8 +31,16 @@ public class Waiter {
         Player player = new Player("Hi", 8);
         Meal meal = new Meal();
         Menu menu = new Menu();
+        Cook cook = new Cook();
+        Table table = new Table(1, player);
         Waiter waiter = new Waiter();
+        Cleaner cleaner = new Cleaner();
         waiter.takeOrder(menu, meal, player);
+        cook.cooking(meal, waiter, player, table);  //table is dirty
+        cleaner.CleanTable(table);
         waiter.bringBill(menu, player);
+        System.out.println(player.satisfied);
+
+
     }
 }

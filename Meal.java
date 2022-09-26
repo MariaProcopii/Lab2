@@ -5,27 +5,30 @@ public class Meal {
     String food;
     String supply;
 
-    void pickFood(Menu menu){
+    void pickFood(Player player, Menu menu){
         Random random = new Random();
         int rand1 = random.nextInt(menu.foodList.length);
         int rand2 = random.nextInt(menu.suppliesList.length);
         food = menu.foodList[rand1];
         supply = menu.suppliesList[rand2];
+        System.out.println("Player " + player.index + " wants to order " + food + " with " + supply);
     }
     void stopListCheck(Player player, Menu menu){
         menu.stopList();
         if(food.equals(menu.foodFromSL)){
-            pickFood(menu);
             player.satisfied--;
-            System.out.println("Food was in stop list.");
+            System.out.println("Food, ordered by Player " + player.index + " was in Stop-list.\n" +
+                    "Player should pick another food");
+            pickFood(player, menu);
         }
         else if(supply.equals(menu.supplyFromSL)){
-            pickFood(menu);
             player.satisfied--;
-            System.out.println("Supply was in stop list.");
+            System.out.println("Supply, wanted by Player " + player.index + " was in Stop-list.\n" +
+                    "Player should pick another supply");
+            pickFood(player, menu);
         }
         else{
-            System.out.println("Meal is not in stop list.");
+            System.out.println("Meal, wanted by Player " + player.index + " was not in Stop-list");
         }
     }
 

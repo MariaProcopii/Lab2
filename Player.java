@@ -15,6 +15,7 @@ public class Player {
         this.index = index;
         Random random = new Random();
         this.money = random.nextInt(201);
+        System.out.println("Player " + index + " has " + money + " $");
     }
     public int moneyAmount(){
         return money;
