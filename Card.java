@@ -1,9 +1,18 @@
 public class Card {
     Deck deck = new Deck();
-    String suit;
-    String rank;
-    int value;
+    private final String suit;
+    private final String rank;
+    private int value;
 
+    public String getSuit(){
+        return suit;
+    }
+    public String getRank(){
+        return rank;
+    }
+    public int getValue(){
+        return value;
+    }
     public Card(String suit, String rank){
         this.suit = suit;
         this.rank = rank;
@@ -11,7 +20,7 @@ public class Card {
 
     public void findValue(){
         deck.cardValue();
-        this.value  = deck.cardWithValue.get(rank);
+        this.value  = deck.getCardWithValue().get(rank);
     }
 
 }

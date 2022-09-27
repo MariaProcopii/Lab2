@@ -1,17 +1,23 @@
 import java.util.ArrayList;
 import java.util.Random;
 public class Admin {
-    static int nrOfTables = 3;
-    int nrOfPlayers;
+    private int nrOfTables = 3;
+    private final int nrOfPlayers;
 
     public Admin(int nrOfPlayers) {
         this.nrOfPlayers = nrOfPlayers;
     }
-    static void setNrOfTables(int tablesNr){
-        nrOfTables = tablesNr;
-    }
+
     public int getNrOfTables(){
         return nrOfTables;
+    }
+
+    public void setNrOfTables(int tablesNr){
+        nrOfTables = tablesNr;
+    }
+
+    public int getNrOfPlayers() {
+        return nrOfPlayers;
     }
 
     public void provideTable(ArrayList<Player> haveTable,
@@ -37,12 +43,13 @@ public class Admin {
             }
         }
     }
+
     public void printPlayers(ArrayList<Player> haveTable,
                              ArrayList<Player> haveNoTable,
                              ArrayList<Table> table){
         for(Player i : haveTable){
             if(i != null){
-                System.out.println(i.index);
+                System.out.println(i.getIndex());
             }
             else{
                 System.out.println("null");
@@ -51,7 +58,7 @@ public class Admin {
         if(nrOfPlayers > nrOfTables){
             for(Player i : haveNoTable){
                 if(i != null){
-                    System.out.println(i.index);
+                    System.out.println(i.getIndex());
                 }
                 else{
                     System.out.println("null");
@@ -59,6 +66,7 @@ public class Admin {
             }
         }
     }
+
     public static ArrayList<Table> table = new ArrayList<>();
     static ArrayList<Player> haveTable = new ArrayList<>();
     static ArrayList<Player> haveNoTable = new ArrayList<>();
